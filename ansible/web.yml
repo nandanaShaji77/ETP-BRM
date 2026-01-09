@@ -1,7 +1,6 @@
 ---
 - name: Web Server Deployment
   hosts: webservers
-  become: yes
 
   tasks:
     - name: Install Apache
@@ -19,4 +18,4 @@
       copy:
         content: "Welcome to Ansible Web Server"
         dest: /var/www/html/index.html
-        
+
