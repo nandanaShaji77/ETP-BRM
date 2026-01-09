@@ -1,0 +1,21 @@
+---
+- name: Web Server Deployment
+  hosts: webservers
+  become: yes
+
+  tasks:
+    - name: Install Apache
+      yum:
+        name: httpd
+        state: present
+
+    - name: Start and enable Apache
+      service:
+        name: httpd
+        state: started
+        enabled: yes
+
+    - name: Deploy index.html
+      copy:
+        content: "Welcome to Ansible Web Server"
+        dest: /var/www/html/index.html
