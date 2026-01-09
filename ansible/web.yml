@@ -4,13 +4,14 @@
 
   tasks:
     - name: Install Apache
-      yum:
-        name: httpd
+      apt:
+        name: apache2
         state: present
+        update_cache: yes
 
-    - name: Start and enable Apache
+    - name: Start and enable Apache service
       service:
-        name: httpd
+        name: apache2
         state: started
         enabled: yes
 
@@ -18,4 +19,3 @@
       copy:
         content: "Welcome to Ansible Web Server"
         dest: /var/www/html/index.html
-
