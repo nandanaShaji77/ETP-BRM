@@ -19,3 +19,4 @@
       copy:
         content: "Welcome to Ansible Web Server"
         dest: /var/www/html/index.html
+        
